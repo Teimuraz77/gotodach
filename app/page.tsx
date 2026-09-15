@@ -6,6 +6,7 @@ const solutions = [
     description:
       'Strategic bridging and infrastructure projects, connecting European capital and technology with high-growth markets in Central Asia.',
     action: 'Explore Central Asia',
+    link: '/central-asia',
     accent: 'from-emerald-950/80 via-emerald-950/20 to-[#101716]',
     mark: 'CA',
   },
@@ -16,6 +17,7 @@ const solutions = [
     description:
       'A precise, trusted route into Germany, Austria, and Switzerland for international businesses seeking structured market expansion.',
     action: 'Explore DACH Consulting',
+    link: '/dach-inbound',
     accent: 'from-stone-800/70 via-stone-900/20 to-[#101716]',
     mark: 'DACH',
   },
@@ -26,6 +28,7 @@ const solutions = [
     description:
       'Intelligent conversational infrastructure for automating candidate onboarding, tech sales matching, and talent pipelines via WhatsApp & Telegram.',
     action: 'Discover HuGu AI',
+    link: '/hugu-ai',
     accent: 'from-[#193d39]/80 via-[#193d39]/20 to-[#101716]',
     mark: 'AI',
   },
@@ -52,7 +55,6 @@ function SolutionCard({ solution }: { solution: (typeof solutions)[number] }) {
         <h2 className="max-w-xs text-2xl font-medium leading-tight tracking-[-0.03em] text-stone-100 md:text-[27px]">{solution.title}</h2>
         <p className="mt-5 max-w-sm text-sm leading-6 text-stone-400">{solution.description}</p>
         
-        {/* HuGu Option A: Mobile Buttons vs Desktop QR-Codes */}
         {isHuGu ? (
           <div className="mt-8 border-t border-white/10 pt-6">
             <div className="flex flex-col gap-3 md:hidden">
@@ -67,19 +69,21 @@ function SolutionCard({ solution }: { solution: (typeof solutions)[number] }) {
             <div className="hidden md:flex items-center gap-4">
               <div className="flex flex-col items-center gap-2">
                 <div className="flex h-16 w-16 items-center justify-center rounded-sm bg-white text-center text-[9px] font-bold text-stone-900 shadow-md">QR<br/>WhatsApp</div>
-                <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-stone-400">WhatsApp</span>
               </div>
               <div className="flex flex-col items-center gap-2">
                 <div className="flex h-16 w-16 items-center justify-center rounded-sm bg-white text-center text-[9px] font-bold text-stone-900 shadow-md">QR<br/>Telegram</div>
-                <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-stone-400">Telegram</span>
               </div>
               <div className="ml-2 text-xs text-stone-400">
-                Scan with your phone to launch HuGu directly.
+                Scan to launch.
               </div>
             </div>
+            
+            <a href={solution.link} className="group mt-6 inline-flex items-center gap-2 text-xs font-mono tracking-widest text-emerald-400 transition-colors hover:text-emerald-300">
+              MEHR ÜBER HUGU AI <ArrowIcon />
+            </a>
           </div>
         ) : (
-          <a href="#contact" className="group mt-8 inline-flex items-center gap-3 border-b border-emerald-400/50 pb-2 text-sm font-medium text-stone-100 transition-colors hover:border-emerald-300 hover:text-emerald-300">
+          <a href={solution.link} className="group mt-8 inline-flex items-center gap-3 border-b border-emerald-400/50 pb-2 text-sm font-medium text-stone-100 transition-colors hover:border-emerald-300 hover:text-emerald-300">
             {solution.action}
             <ArrowIcon />
           </a>
@@ -94,20 +98,18 @@ export default function Page() {
     <main className="min-h-screen overflow-hidden bg-[#0b100f] text-stone-100 selection:bg-emerald-400 selection:text-[#0b100f]">
       <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-16">
         
-        {/* Header */}
         <header className="flex h-24 items-center justify-between border-b border-white/10">
-          <a href="#top" className="flex items-center gap-3" aria-label="GoToDACH home">
+          <a href="/" className="flex items-center gap-3" aria-label="GoToDACH home">
             <span className="flex h-8 w-8 items-center justify-center border border-emerald-400/70 text-sm font-semibold text-emerald-300">G</span>
             <span className="text-sm font-semibold tracking-[0.28em] text-stone-200">GoToDACH</span>
           </a>
           <nav aria-label="Main navigation" className="hidden items-center gap-9 md:flex">
             <a href="#solutions" className="text-sm text-stone-400 transition-colors hover:text-stone-100">Pillars</a>
-            <a href="#contact" className="text-sm text-stone-400 transition-colors hover:text-stone-100">Contact</a>
+            <a href="/kontakt" className="text-sm text-stone-400 transition-colors hover:text-stone-100">Contact</a>
           </nav>
-          <a href="#contact" className="border border-white/20 px-4 py-2.5 text-xs font-medium uppercase tracking-[0.16em] text-stone-200 transition-colors hover:border-emerald-400 hover:text-emerald-300">Get in touch</a>
+          <a href="/kontakt" className="border border-white/20 px-4 py-2.5 text-xs font-medium uppercase tracking-[0.16em] text-stone-200 transition-colors hover:border-emerald-400 hover:text-emerald-300">Get in touch</a>
         </header>
 
-        {/* Hero Section */}
         <section id="top" className="relative py-24 sm:py-32 lg:py-40" aria-labelledby="hero-title">
           <div className="pointer-events-none absolute -right-20 top-8 h-96 w-96 rounded-full bg-emerald-500/10 blur-[120px]" />
           <p className="mb-8 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.28em] text-emerald-300/80">
@@ -126,7 +128,6 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Solutions Grid */}
         <section id="solutions" className="pb-24 sm:pb-32" aria-labelledby="solutions-title">
           <div className="mb-8 flex items-end justify-between gap-6">
             <div>
@@ -142,9 +143,11 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Footer */}
-        <footer id="contact" className="flex flex-col gap-5 border-t border-white/10 py-8 text-xs text-stone-500 sm:flex-row sm:items-center sm:justify-between">
-          <span>© 2026 GoToDACH. All rights reserved.</span>
+        <footer className="flex flex-col gap-5 border-t border-white/10 py-8 text-xs text-stone-500 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex gap-4">
+            <span>© 2026 GoToDACH. All rights reserved.</span>
+            <a href="/impressum" className="transition-colors hover:text-stone-300">Impressum</a>
+          </div>
           <a href="mailto:contact@gotodach.com" className="text-stone-300 transition-colors hover:text-emerald-300">contact@gotodach.com</a>
         </footer>
       </div>
