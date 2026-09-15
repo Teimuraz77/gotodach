@@ -64,6 +64,7 @@ function SolutionCard({ solution }: { solution: (typeof solutions)[number] }) {
         {isHuGu ? (
           <div className="hidden md:flex items-center gap-4">
               <div className="flex flex-col items-center gap-2">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img 
                   src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://wa.me/491723196188" 
                   alt="WhatsApp QR Code" 
@@ -72,6 +73,7 @@ function SolutionCard({ solution }: { solution: (typeof solutions)[number] }) {
                 <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-stone-400">WhatsApp</span>
               </div>
               <div className="flex flex-col items-center gap-2">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img 
                   src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://t.me/HuGu26" 
                   alt="Telegram QR Code" 
@@ -82,8 +84,7 @@ function SolutionCard({ solution }: { solution: (typeof solutions)[number] }) {
               <div className="ml-2 text-xs text-stone-400">
                 Scan to launch.
               </div>
-            </div>
-            
+            </div>            
             <a href={solution.link} className="group mt-6 inline-flex items-center gap-2 text-xs font-mono tracking-widest text-emerald-400 transition-colors hover:text-emerald-300">
               MEHR ÜBER HUGU AI <ArrowIcon />
             </a>
