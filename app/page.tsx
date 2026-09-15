@@ -40,18 +40,24 @@ function ArrowIcon() {
 
 function SolutionCard({ solution }: { solution: (typeof solutions)[number] }) {
   const isHuGu = solution.mark === 'AI';
+  
+  // Hardschreiben der Farben, damit Vercel sie beim Build nicht löscht
+  const cardColor = 
+    solution.mark === 'CA' ? 'bg-gradient-to-br from-emerald-900/40 via-emerald-950/10 to-[#0b100f] border-emerald-800/30' :
+    solution.mark === 'DACH' ? 'bg-gradient-to-br from-stone-800/40 via-stone-900/10 to-[#0b100f] border-stone-700/30' :
+    'bg-gradient-to-br from-[#193d39]/50 via-[#193d39]/10 to-[#0b100f] border-[#193d39]/50';
 
   return (
-    <article className={`group relative flex min-h-[400px] flex-col overflow-hidden rounded-sm border border-white/10 bg-gradient-to-br ${solution.accent} p-7 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-400/50 hover:shadow-[0_24px_70px_-30px_rgba(16,185,129,0.45)] md:p-8`}>
-      <div className="absolute -right-8 -top-10 select-none text-[150px] font-semibold leading-none tracking-[-0.12em] text-white/[0.035]">
+    <article className={`group relative flex min-h-[400px] flex-col overflow-hidden rounded-sm border ${cardColor} p-7 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-400/60 hover:shadow-[0_20px_50px_-20px_rgba(16,185,129,0.3)] md:p-8`}>
+      <div className="absolute -right-8 -top-10 select-none text-[150px] font-semibold leading-none tracking-[-0.12em] text-white/[0.04]">
         {solution.mark}
       </div>
       <div className="relative flex items-center justify-between border-b border-white/10 pb-5">
         <span className="font-mono text-xs tracking-[0.2em] text-emerald-300/75">{solution.index}</span>
-        <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_14px_rgba(52,211,153,0.8)]" />
+        <span className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_12px_rgba(16,185,129,0.8)]" />
       </div>
       <div className="relative mt-auto">
-        <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.22em] text-emerald-300">{solution.eyebrow}</p>
+        <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.22em] text-emerald-400">{solution.eyebrow}</p>
         <h2 className="max-w-xs text-2xl font-medium leading-tight tracking-[-0.03em] text-stone-100 md:text-[27px]">{solution.title}</h2>
         <p className="mt-5 max-w-sm text-sm leading-6 text-stone-400">{solution.description}</p>
         
