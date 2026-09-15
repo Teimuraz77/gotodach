@@ -45,9 +45,6 @@ function SolutionCard({ solution }: { solution: (typeof solutions)[number] }) {
 
   return (
     <article className={`group relative flex min-h-[400px] flex-col overflow-hidden rounded-sm border ${cardColor} p-7 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-400/60 hover:shadow-[0_20px_50px_-20px_rgba(16,185,129,0.3)] md:p-8`}>
-      <div className="absolute -right-8 -top-10 select-none text-[150px] font-semibold leading-none tracking-[-0.12em] text-white/[0.04]">
-        {solution.mark}
-      </div>
       <div className="relative flex items-center justify-between border-b border-white/10 pb-5">
         <span className="font-mono text-xs tracking-[0.2em] text-emerald-300/75">{solution.index}</span>
         <span className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_12px_rgba(16,185,129,0.8)]" />
@@ -93,7 +90,7 @@ function SolutionCard({ solution }: { solution: (typeof solutions)[number] }) {
             </div>
             
             <a href={solution.link} className="group mt-6 inline-flex items-center gap-2 text-xs font-mono tracking-widest text-emerald-400 transition-colors hover:text-emerald-300">
-              Explore HUGU AI <ArrowIcon />
+              MEHR ÜBER HUGU AI <ArrowIcon />
             </a>
           </div>
         ) : (
