@@ -62,22 +62,22 @@ function SolutionCard({ solution }: { solution: (typeof solutions)[number] }) {
         <p className="mt-5 max-w-sm text-sm leading-6 text-stone-400">{solution.description}</p>
         
         {isHuGu ? (
-          <div className="mt-8 border-t border-white/10 pt-6">
-            <div className="flex flex-col gap-3 md:hidden">
-              <a href="https://wa.me/491723196188" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-sm bg-emerald-500 px-4 py-3 text-xs font-bold uppercase tracking-widest text-[#0b100f] transition-colors hover:bg-emerald-400">
-                Start on WhatsApp
-              </a>
-              <a href="https://t.me/HuGu26" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-sm border border-emerald-500/50 bg-[#0b100f] px-4 py-3 text-xs font-bold uppercase tracking-widest text-emerald-400 transition-colors hover:bg-emerald-950">
-                Start on Telegram
-              </a>
-            </div>
-
-            <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-4">
               <div className="flex flex-col items-center gap-2">
-                <div className="flex h-16 w-16 items-center justify-center rounded-sm bg-white text-center text-[9px] font-bold text-stone-900 shadow-md">QR<br/>WhatsApp</div>
+                <img 
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://wa.me/491723196188" 
+                  alt="WhatsApp QR Code" 
+                  className="h-16 w-16 rounded-sm bg-white p-1 shadow-md"
+                />
+                <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-stone-400">WhatsApp</span>
               </div>
               <div className="flex flex-col items-center gap-2">
-                <div className="flex h-16 w-16 items-center justify-center rounded-sm bg-white text-center text-[9px] font-bold text-stone-900 shadow-md">QR<br/>Telegram</div>
+                <img 
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://t.me/HuGu26" 
+                  alt="Telegram QR Code" 
+                  className="h-16 w-16 rounded-sm bg-white p-1 shadow-md"
+                />
+                <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-stone-400">Telegram</span>
               </div>
               <div className="ml-2 text-xs text-stone-400">
                 Scan to launch.
