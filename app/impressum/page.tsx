@@ -15,7 +15,7 @@ export default function Impressum() {
           
           <section>
             <h2 className="text-lg font-medium text-stone-200 mb-2">Kontakt</h2>
-            <p>Telefon: 0049 1577533785</p>
+            <p>Telefon: +491723196188</p>
             <p>E-Mail: contact@gotodach.com</p>
           </section>
           
