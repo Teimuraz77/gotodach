@@ -106,7 +106,7 @@ export default function Page() {
         
         <header className="flex h-24 items-center justify-between border-b border-white/10">
           <a href="/" className="flex items-center gap-3" aria-label="GoToDACH home">
-            <span className="flex h-8 w-8 items-center justify-center border border-emerald-400/70 text-sm font-semibold text-emerald-300">G</span>
+            <img src="/logo.png" alt="GoToDACH Logo" className="h-8 w-auto" />
             <span className="text-sm font-semibold tracking-[0.28em] text-stone-200">GoToDACH</span>
           </a>
           <nav aria-label="Main navigation" className="hidden items-center gap-9 md:flex">
