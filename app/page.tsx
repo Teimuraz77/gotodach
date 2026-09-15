@@ -7,7 +7,6 @@ const solutions = [
       'Strategic bridging and infrastructure projects, connecting European capital and technology with high-growth markets in Central Asia.',
     action: 'Explore Central Asia',
     link: '/central-asia',
-    accent: 'from-emerald-950/80 via-emerald-950/20 to-[#101716]',
     mark: 'CA',
   },
   {
@@ -18,7 +17,6 @@ const solutions = [
       'A precise, trusted route into Germany, Austria, and Switzerland for international businesses seeking structured market expansion.',
     action: 'Explore DACH Consulting',
     link: '/dach-inbound',
-    accent: 'from-stone-800/70 via-stone-900/20 to-[#101716]',
     mark: 'DACH',
   },
   {
@@ -29,7 +27,6 @@ const solutions = [
       'Intelligent conversational infrastructure for automating candidate onboarding, tech sales matching, and talent pipelines via WhatsApp & Telegram.',
     action: 'Discover HuGu AI',
     link: '/hugu-ai',
-    accent: 'from-[#193d39]/80 via-[#193d39]/20 to-[#101716]',
     mark: 'AI',
   },
 ]
@@ -41,7 +38,6 @@ function ArrowIcon() {
 function SolutionCard({ solution }: { solution: (typeof solutions)[number] }) {
   const isHuGu = solution.mark === 'AI';
   
-  // Hardschreiben der Farben, damit Vercel sie beim Build nicht löscht
   const cardColor = 
     solution.mark === 'CA' ? 'bg-gradient-to-br from-emerald-900/40 via-emerald-950/10 to-[#0b100f] border-emerald-800/30' :
     solution.mark === 'DACH' ? 'bg-gradient-to-br from-stone-800/40 via-stone-900/10 to-[#0b100f] border-stone-700/30' :
@@ -62,7 +58,17 @@ function SolutionCard({ solution }: { solution: (typeof solutions)[number] }) {
         <p className="mt-5 max-w-sm text-sm leading-6 text-stone-400">{solution.description}</p>
         
         {isHuGu ? (
-          <div className="hidden md:flex items-center gap-4">
+          <div className="mt-8 border-t border-white/10 pt-6">
+            <div className="flex flex-col gap-3 md:hidden">
+              <a href="https://wa.me/491723196188" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-sm bg-emerald-500 px-4 py-3 text-xs font-bold uppercase tracking-widest text-[#0b100f] transition-colors hover:bg-emerald-400">
+                Start on WhatsApp
+              </a>
+              <a href="https://t.me/HuGu26" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-sm border border-emerald-500/50 bg-[#0b100f] px-4 py-3 text-xs font-bold uppercase tracking-widest text-emerald-400 transition-colors hover:bg-emerald-950">
+                Start on Telegram
+              </a>
+            </div>
+
+            <div className="hidden md:flex items-center gap-4">
               <div className="flex flex-col items-center gap-2">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img 
@@ -84,16 +90,16 @@ function SolutionCard({ solution }: { solution: (typeof solutions)[number] }) {
               <div className="ml-2 text-xs text-stone-400">
                 Scan to launch.
               </div>
-            </div>            
+            </div>
+            
             <a href={solution.link} className="group mt-6 inline-flex items-center gap-2 text-xs font-mono tracking-widest text-emerald-400 transition-colors hover:text-emerald-300">
               MEHR ÜBER HUGU AI <ArrowIcon />
             </a>
           </div>
         ) : (
-         <a href="/" className="flex items-center gap-3" aria-label="GoToDACH home">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.png" alt="GoToDACH Logo" className="h-8 w-auto" />
-            <span className="text-sm font-semibold tracking-[0.28em] text-stone-200">GoToDACH</span>
+          <a href={solution.link} className="group mt-8 inline-flex items-center gap-3 border-b border-emerald-400/50 pb-2 text-sm font-medium text-stone-100 transition-colors hover:border-emerald-300 hover:text-emerald-300">
+            {solution.action}
+            <ArrowIcon />
           </a>
         )}
       </div>
@@ -108,7 +114,8 @@ export default function Page() {
         
         <header className="flex h-24 items-center justify-between border-b border-white/10">
           <a href="/" className="flex items-center gap-3" aria-label="GoToDACH home">
-            <img src="/logo.png" alt="GoToDACH Logo" className="h-8 w-auto" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.svg" alt="GoToDACH Logo" className="h-8 w-auto" />
             <span className="text-sm font-semibold tracking-[0.28em] text-stone-200">GoToDACH</span>
           </a>
           <nav aria-label="Main navigation" className="hidden items-center gap-9 md:flex">
