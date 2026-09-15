@@ -90,9 +90,10 @@ function SolutionCard({ solution }: { solution: (typeof solutions)[number] }) {
             </a>
           </div>
         ) : (
-          <a href={solution.link} className="group mt-8 inline-flex items-center gap-3 border-b border-emerald-400/50 pb-2 text-sm font-medium text-stone-100 transition-colors hover:border-emerald-300 hover:text-emerald-300">
-            {solution.action}
-            <ArrowIcon />
+         <a href="/" className="flex items-center gap-3" aria-label="GoToDACH home">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.svg" alt="GoToDACH Logo" className="h-8 w-auto" />
+            <span className="text-sm font-semibold tracking-[0.28em] text-stone-200">GoToDACH</span>
           </a>
         )}
       </div>
