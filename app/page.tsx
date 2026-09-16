@@ -1,3 +1,11 @@
+export const metadata = {
+  title: 'GoToDACH — Bridging Markets & Automating Growth',
+  description: 'Central Asia Infrastructure, DACH Consulting & AI Recruiting Automation',
+  icons: {
+    icon: '/logo.PNG',
+  },
+}
+
 const solutions = [
   {
     index: '01',
