@@ -98,7 +98,7 @@ function SolutionCard({ solution }: { solution: (typeof solutions)[number] }) {
             </div>
             
             <a href={solution.link} className="group mt-6 inline-flex items-center gap-2 text-xs font-mono tracking-widest text-emerald-400 transition-colors hover:text-emerald-300">
-              MEHR ÜBER HUGU AI <ArrowIcon />
+              Explore HUGU AI <ArrowIcon />
             </a>
           </div>
         ) : (
